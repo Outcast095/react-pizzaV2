@@ -1,1 +1,10 @@
 25:53 - установка шрифтов
+
+//https://youtu.be/Y8j2GzMbaAw?si=Y-QH2uNTre1rx57d
+0:34 - работа с изображениями
+01:04:20 - работа со spread оператором
+
+//https://youtu.be/_EiClUmTlNg?si=Y3GDEHWOS_KtTm83
+00:23:43 - popup-окно сортировки
+
+//https://youtu.be/A_7DhcVwcjg?si=nLIs_JihUpKxYiCO

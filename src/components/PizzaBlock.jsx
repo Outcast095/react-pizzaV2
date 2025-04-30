@@ -1,23 +1,52 @@
-import Pizza from '../img/image/cheese_pizza.jpg';
+import { useState } from 'react';
 
-export const PizzaBlock = ({ title, prise }) => {
+export const PizzaBlock = ({ title, price, image, sizes, types }) => {
+  const [pizzaSize, setPizzaSize] = useState(0);
+  const [pizzaType, setPizzaType] = useState(0);
+
+  const handlerPizzaSize = (size) => {
+    setPizzaSize(size);
+  };
+
+  const handlerPizzaType = (type) => {
+    setPizzaType(type);
+  };
+
+  const obj = {
+    0: 'традиционное',
+    1: 'тонкое',
+  };
+
   return (
     <div className='pizza-block'>
-      <img className='pizza-block__image' src={Pizza} alt='Pizza' />
+      <img className='pizza-block__image' src={image} alt='Pizza' />
       <h4 className='pizza-block__title'>{title}</h4>
       <div className='pizza-block__selector'>
         <ul>
-          <li className='active'>тонкое</li>
-          <li>традиционное</li>
+          {types.map((type, index) => (
+            <li
+              key={index}
+              onClick={() => handlerPizzaType(index)}
+              className={pizzaType === index ? 'active' : ''}
+            >
+              {obj[type]}
+            </li>
+          ))}
         </ul>
         <ul>
-          <li className='active'>26 см.</li>
-          <li>30 см.</li>
-          <li>40 см.</li>
+          {sizes.map((size, index) => (
+            <li
+              key={index}
+              onClick={() => handlerPizzaSize(index)}
+              className={pizzaSize === index ? 'active' : ''}
+            >
+              {`${size} см.`}
+            </li>
+          ))}
         </ul>
       </div>
       <div className='pizza-block__bottom'>
-        <div className='pizza-block__price'>{`от ${prise} ₽`}</div>
+        <div className='pizza-block__price'>{`от ${price} ₽`}</div>
         <div className='button button--outline button--add'>
           <svg
             width='12'
