@@ -4,7 +4,8 @@ import './scss/app.scss';
 import { Header } from './components/Header';
 import { Categories } from './components/Categories';
 import { Sort } from './components/Sort';
-import { PizzaBlock } from './components/PizzaBlock';
+import { PizzaBlock } from './components/PizzaBlock/PizzaBlock';
+import { Skeleton } from './components/PizzaBlock/Skeleton';
 
 export const App = () => {
   const [pizzasData, setPizzasData] = useState([]);
@@ -30,9 +31,7 @@ export const App = () => {
     fetchData();
   }, []);
 
-  if (loading) {
-    return <div>...loading</div>;
-  }
+
 
   if (error) {
     return <div>...error</div>;
@@ -48,9 +47,10 @@ export const App = () => {
             <Sort />
           </div>
           <h2 className='content__title'>Все пиццы</h2>
-          <div className='content__items'>
-            {pizzasData.map((obj) => (
-              <PizzaBlock
+          <div className="content__items">
+            {pizzasData.map((obj) =>
+              loading ? <Skeleton />
+                : <PizzaBlock
                 key={obj.id}
                 image={obj.imageUrl}
                 rating={obj.rating}
@@ -60,7 +60,7 @@ export const App = () => {
                 sizes={obj.sizes}
                 types={obj.types}
               />
-            ))}
+            )}
           </div>
         </div>
       </div>
