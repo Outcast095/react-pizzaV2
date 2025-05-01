@@ -11,3 +11,5 @@
 
 //https://youtu.be/eUt-M-YRjyg?si=r3Sxdm3w2EzxXnjC
 0:07 - скелетон
+28:30 - react-router
+
