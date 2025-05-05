@@ -3,9 +3,13 @@ import React, {useCallback, useRef, useState} from 'react';
 import debounce from 'lodash.debounce';
 
 import styles from './search.module.scss';
+import { SearchContext } from '../../App';
 
 
-export const Search = ({setSearchValue}) => {
+export const Search = () => {
+
+  const {setSearchValue} = React.useContext(SearchContext)
+
   //const dispatch = useDispatch();
   const inputRef = useRef(null);
   const [value, setValue] = useState('');
