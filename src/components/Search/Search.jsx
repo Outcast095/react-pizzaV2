@@ -1,4 +1,4 @@
-import React, {useCallback, useRef, useState} from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 //import { useDispatch } from 'react-redux';
 import debounce from 'lodash.debounce';
 
@@ -13,6 +13,9 @@ export const Search = () => {
   //const dispatch = useDispatch();
   const inputRef = useRef(null);
   const [value, setValue] = useState('');
+
+
+
   const onClickClear = () => {
     //dispatch(setSearchValue(''));
     setSearchValue('');
@@ -32,6 +35,7 @@ export const Search = () => {
     updateSearchValue(event.target.value);
   };
 
+
   return (
     <div className={styles.root}>
       <svg
@@ -40,7 +44,8 @@ export const Search = () => {
         id="EditableLine"
         version="1.1"
         viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg">
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <circle
           cx="14"
           cy="14"

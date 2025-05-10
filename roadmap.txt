@@ -31,3 +31,20 @@
 
 //https://youtu.be/YAsKVCNqdy4?si=5gvSLB6ALt4STWDC
 0:57 - axios
+5:16 - onFocuse на input
+13:40 - debounce для input
+24:19 - использование хука useCallback
+44:12 - настройка пагинации через redux
+
+
+//https://youtu.be/e-sm4OOXHBc?si=vnlkq-9VFV00scPd
+0:00 - Сохраняем параметры фильтрации в URL
+
+//https://youtu.be/e-sm4OOXHBc?si=K7hjn9Mp-Xp94f7n
+все видео про работу с квери параметрами, вшивание их и парсинг
+13:34 - запрос при условии первого рендеринга /// полезная тема
+25:28 - useEffect по условию
+
+//https://youtu.be/RhOvu20t0Go?si=tXaL8VeLfYG0aXI5
+0:57 - закрытие popup окна сортировки при клике вне его области useClickOutside
+6:35 - removeEventListener использование в проекте
