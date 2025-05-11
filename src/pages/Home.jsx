@@ -6,8 +6,7 @@ import { Skeleton } from '../components/PizzaBlock/Skeleton';
 import { PizzaBlock } from '../components/PizzaBlock/PizzaBlock';
 import { Pagination } from '../components/Pagination/Pagination';
 import { SearchContext } from '../App';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../redux/store';
+import { useSelector, useDispatch } from 'react-redux';
 import { setCategoryId, setFilters } from '../redux/slices/filterSlice';
 import qs from 'qs';
 import { useNavigate } from 'react-router-dom';
@@ -25,7 +24,7 @@ export const Home = () => {
 
 
   const { categoryId, sort, currentPage } = useSelector(state => state.filter);
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const onChangeCategory = (id) => {
@@ -53,6 +52,8 @@ export const Home = () => {
       } catch (error) {
         setError(error);
         setLoading(false);
+      } finally {
+        setLoading(false)
       }
     };
 
@@ -113,14 +114,7 @@ export const Home = () => {
           ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
           : pizzasData.map((obj) => (
             <PizzaBlock
-              key={obj.id}
-              image={obj.imageUrl}
-              rating={obj.rating}
-              category={obj.category}
-              title={obj.title}
-              price={obj.price}
-              sizes={obj.sizes}
-              types={obj.types}
+              key={obj.id} {...obj}
             />
           ))}
       </div>
