@@ -1,11 +1,12 @@
 
 import './scss/app.scss';
 import React, { useState } from 'react';
-import { Header } from './components/Header';
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { Cart } from './pages/Cart';
 import { NotFound } from './pages/NotFound';
+import { MainLayout } from './layout/MainLayout';
+import { FullPizza } from './pages/FullPizza';
 
 
  export const SearchContext = React.createContext('');
@@ -15,18 +16,14 @@ export const App = () => {
 
   return (
     <div className='wrapper'>
-      <SearchContext.Provider value={{searchValue, setSearchValue}}>
-      <Header/>
-      <div className='content'>
-        <div className='container'>
             <Routes>
-              <Route path={'/'} element={<Home/>} />
-              <Route path={'/cart'} element={<Cart/>}/>
-              <Route path={'*'} element={<NotFound />} />
+              <Route path={'/'} element={<MainLayout/>}>
+                <Route path={''} element={<Home/>} />
+                <Route path={'/cart'} element={<Cart/>}/>
+                <Route path={'/pizzas/:id'} element={<FullPizza/>}/>
+                <Route path={'*'} element={<NotFound />} />
+              </Route>
             </Routes>
-        </div>
-      </div>
-        </SearchContext.Provider>
     </div>
   );
 };

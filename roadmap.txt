@@ -58,4 +58,8 @@
 //https://youtu.be/06bh14iY3dA?si=FwA74ZGKEI6sh5Q2
 
 2:34 - хук useLocation из библиотеки react-router-dom
-
+16:50 - хук useParams из библиотеки react-router-dom
+18:15 - динамические роуты в react-router-dom
+39:50 - outlet в react-router-dom
+45:45 - компонент layout
+56:05 -  хук useNavigate react-router-dom
