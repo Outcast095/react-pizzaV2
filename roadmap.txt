@@ -48,3 +48,14 @@
 //https://youtu.be/RhOvu20t0Go?si=tXaL8VeLfYG0aXI5
 0:57 - закрытие popup окна сортировки при клике вне его области useClickOutside
 6:35 - removeEventListener использование в проекте
+
+
+//https://youtu.be/4mCR72ug1SE?si=hFsFXvNui2a14p3n
+2:37 - thunkApi из reduxToolkit опциональный параметр санки
+17:31 - создание редакс селекторов
+
+
+//https://youtu.be/06bh14iY3dA?si=FwA74ZGKEI6sh5Q2
+
+2:34 - хук useLocation из библиотеки react-router-dom
+
