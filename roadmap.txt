@@ -63,3 +63,7 @@
 39:50 - outlet в react-router-dom
 45:45 - компонент layout
 56:05 -  хук useNavigate react-router-dom
+
+//https://youtu.be/9rA2bXWDLjw?si=-TjbkSBNJPt5f4Ix
+
+4:04 - установка typeScript

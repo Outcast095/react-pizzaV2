@@ -1,6 +1,6 @@
-
+import React from 'react';
 import './scss/app.scss';
-import React, { useState } from 'react';
+
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { Cart } from './pages/Cart';
@@ -8,11 +8,7 @@ import { NotFound } from './pages/NotFound';
 import { MainLayout } from './layout/MainLayout';
 import { FullPizza } from './pages/FullPizza';
 
-
- export const SearchContext = React.createContext('');
-
 export const App = () => {
-  const [searchValue, setSearchValue] = useState('');
 
   return (
     <div className='wrapper'>
