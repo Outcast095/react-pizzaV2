@@ -3,12 +3,12 @@ import cart from '../img/cart.svg';
 import { Link, useLocation } from 'react-router-dom';
 import { Search } from './Search/Search';
 import { useSelector } from 'react-redux';
-import { selectCart } from '../redux/slices/cartSlice';
+import { selectCart } from '../redux/cart/selectors';
 
 export const Header = () => {
 
   const { items, totalPrice } = useSelector(selectCart);
-  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+  const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
   const location = useLocation();
 
 
@@ -30,7 +30,7 @@ export const Header = () => {
             <Link to={'/cart'} className='button button--cart'>
               <span>{totalPrice} ₽</span>
               <div className='button__delimiter'></div>
-              <img width='18' height='18' viewBox='0 0 18 18' fill='none' src={cart} alt='cart' />
+              <img className="" width='18' height='18' src={cart} alt='cart' />
               <span>{totalCount}</span>
             </Link>
           )

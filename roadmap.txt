@@ -67,3 +67,36 @@
 //https://youtu.be/9rA2bXWDLjw?si=-TjbkSBNJPt5f4Ix
 
 4:04 - установка typeScript
+37:05 - безопасный рендеринг компонента, возвращение ожидаемых данных или undefined
+
+
+//https://youtu.be/7QdQc-KwWKE?si=3apoAa2b5AaapJRJ
+2:30 - решение проблемы корректного импорта svg png scss
+19:43 - типизация useRef
+44:50 - типизация сторонних библоитек lodash
+
+
+//https://youtu.be/WbrxEPgS83c?si=6CshCahMoNkHzYqF
+
+13:16 типизация input
+19:06 типизация button onClick
+28:41 - типизация reactClick outside и его свойства path
+37:52 - инструмент as
+
+
+//https://youtu.be/cFkSoZVzngo?si=tERsMIYVC5Poblec
+
+28:58 - типизация action redux-toolkit
+37:05 - типизация санки
+38:54 - утилита типов Record
+41:09 - типизация ответа data от сервера
+42:37 - типизация createAsyncThunk
+44:54 - типизация axios запроса
+49:05 - типизация extraRedusers
+56:30 - использование enum
+1:03:13 - типизация dispatch для работы с асинхронными экшенами
+
+
+//https://youtu.be/KvoWbHHBv88?si=gSOOLFL1O-tATUVu
+
+оптимизация

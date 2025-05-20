@@ -1,41 +1,32 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import debounce from 'lodash.debounce';
 
 import styles from './search.module.scss';
-import { SearchContext } from '../../layout/MainLayout';
-import { setSearchValue } from '../../redux/slices/filterSlice';
+import { setSearchValue } from '../../redux/filter/slice';
 
-
-export const Search = () => {
-
-
-  //const  setSearchValue  = React.useContext(SearchContext)
+export const Search: React.FC = () => {
   const dispatch = useDispatch();
-  const inputRef = useRef(null);
-  const [value, setValue] = useState('');
-
-
+  const [value, setValue] = React.useState<string>('');
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
   const onClickClear = () => {
     dispatch(setSearchValue(''));
-    //setSearchValue('');
+    setValue('');
     inputRef.current?.focus();
   };
 
-  const updateSearchValue = useCallback(
-    debounce((str) => {
-      //setSearchValue(str);
+  const updateSearchValue = React.useCallback(
+    debounce((str: string) => {
       dispatch(setSearchValue(str));
     }, 150),
     [],
   );
 
-  const onChangeInput = (event) => {
-    setValue(event.target.value)
+  const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
     updateSearchValue(event.target.value);
   };
-
 
   return (
     <div className={styles.root}>
@@ -45,8 +36,7 @@ export const Search = () => {
         id="EditableLine"
         version="1.1"
         viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+        xmlns="http://www.w3.org/2000/svg">
         <circle
           cx="14"
           cy="14"
