@@ -7,7 +7,7 @@ const initialState: FilterSliceState = {
   currentPage: 1,
   sort: {
     name: 'популярности',
-    sortProperty: SortPropertyEnum.RATING_DESC,
+    sortProperty: 'rating',
   },
 };
 
@@ -19,16 +19,17 @@ const slice = createSlice({
       state.categoryId = action.payload;
     },
     setSearchValue(state, action: PayloadAction<string>) {
-      console.log('filters', action.payload);
       state.searchValue = action.payload;
     },
     setSort(state, action: PayloadAction<Sort>) {
+      console.log('filters', action.payload);
       state.sort = action.payload;
     },
     setCurrentPage(state, action: PayloadAction<number>) {
       state.currentPage = action.payload;
     },
     setFilters(state, action: PayloadAction<FilterSliceState>) {
+      console.log('filters', action.payload);
       if (Object.keys(action.payload).length) {
         state.currentPage = Number(action.payload.currentPage);
         state.categoryId = Number(action.payload.categoryId);
@@ -38,7 +39,7 @@ const slice = createSlice({
         state.categoryId = 0;
         state.sort = {
           name: 'популярности',
-          sortProperty: SortPropertyEnum.RATING_DESC,
+          sortProperty: 'rating',
         };
       }
     },

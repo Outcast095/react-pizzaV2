@@ -9,11 +9,11 @@ export enum SortPropertyEnum {
 
 export type Sort = {
   name: string;
-  sortProperty: SortPropertyEnum;
+  sortProperty: 'rating' | '-rating' | 'title' | '-title' | 'price' | '-price';
 };
 
 export interface FilterSliceState {
-  searchValue: string;
+  searchValue?: string | undefined;
   categoryId: number;
   currentPage: number;
   sort: Sort;
