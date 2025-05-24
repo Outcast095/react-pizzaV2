@@ -27,33 +27,48 @@ export const sortList: SortItem[] = [
   { name: 'алфавиту (ASC)', sortProperty: SortPropertyEnum.TITLE_ASC },
 ];
 
+// Определение функционального компонента Sort с типизацией SortPopupProps, обернутого в React.memo для оптимизации рендеринга
 export const Sort: React.FC<SortPopupProps> = React.memo(({ value }) => {
+  // Хук для доступа к диспетчеру Redux, используется для отправки действий в store
   const dispatch = useDispatch();
+  // Ref для привязки к DOM-элементу контейнера сортировки, используется для обработки кликов вне компонента
   const sortRef = React.useRef<HTMLDivElement>(null);
 
+  // Состояние для управления видимостью выпадающего меню сортировки
   const [open, setOpen] = React.useState(false);
 
+  // Функция обработки клика по элементу списка сортировки
   const onClickListItem = (obj: SortItem) => {
+    // Диспатч действия для установки нового типа сортировки в Redux store
     dispatch(setSort(obj));
+    // Закрытие выпадающего меню после выбора
     setOpen(false);
   };
 
+  // useEffect для обработки кликов вне компонента сортировки
   React.useEffect(() => {
+    // Функция обработки клика вне выпадающего меню
     const handleClickOutside = (event: MouseEvent) => {
-
+      // Приведение типа события к PopupClick для доступа к composedPath
       const _event = event as PopupClick;
 
+      // Проверка, что клик произошел вне элемента sortRef
       if (sortRef.current && !_event.composedPath().includes(sortRef.current)) {
+        // Закрытие выпадающего меню, если клик был вне компонента
         setOpen(false);
       }
-    }
+    };
 
+    // Добавление слушателя события клика на body
     document.body.addEventListener('click', handleClickOutside);
 
+    // Очистка: удаление слушателя при размонтировании компонента
     return () => document.body.removeEventListener('click', handleClickOutside);
-  }, []);
+  }, []); // Пустой массив зависимостей, эффект срабатывает только при монтировании/размонтировании
 
+  // JSX для рендеринга компонента
   return (
+    // Контейнер сортировки с привязкой ref для отслеживания кликов
     <div ref={sortRef} className="sort">
       <div className="sort__label">
         <svg
@@ -68,17 +83,21 @@ export const Sort: React.FC<SortPopupProps> = React.memo(({ value }) => {
           />
         </svg>
         <b>Сортировка по:</b>
+        {/* Текущее название сортировки, клик по которому открывает/закрывает меню */}
         <span onClick={() => setOpen(!open)}>{value.name}</span>
       </div>
+      {/* Условный рендеринг выпадающего меню, если open === true */}
       {open && (
         <div className="sort__popup">
           <ul>
+            {/* Перебор массива sortList для рендеринга элементов сортировки */}
             {sortList.map((obj, i) => (
               <li
-                key={i}
-                onClick={() => onClickListItem(obj)}
+                key={i} // Уникальный ключ для каждого элемента списка
+                onClick={() => onClickListItem(obj)} // Обработчик клика по элементу
+                // Добавление класса 'active', если текущая сортировка совпадает с элементом
                 className={value.sortProperty === obj.sortProperty ? 'active' : ''}>
-                {obj.name}
+                {obj.name} {/* Название варианта сортировки */}
               </li>
             ))}
           </ul>
